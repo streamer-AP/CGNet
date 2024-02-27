@@ -1,0 +1,97 @@
+{
+    "Dataset": {
+        "train": {
+            "root": "datasets/sensecrowd/train",
+            "ann_dir": "datasets/sensecrowd/new_annotations",
+            "size_divisor": 32,
+            "batch_size":  1,
+            "num_workers": 8,
+            "shuffle": true,
+            "drop_last": true,
+            "cache_mode": false,
+            "max_len": 3000
+        },
+        "val": {
+            "root": "datasets/sensecrowd/val",
+            "ann_dir": "datasets/sensecrowd/new_annotations",
+            "size_divisor": 32,
+            "batch_size":  1,
+            "num_workers": 8,
+            "shuffle": false,
+            "drop_last": false,
+            "cache_mode": false,
+            "max_len": 3000
+        },
+        "test": {
+            "root": "datasets/sensecrowd/test",
+            "ann_dir": "datasets/sensecrowd/new_annotations",
+            "size_divisor": 32,
+            "batch_size":  1,
+            "num_workers": 8,
+            "shuffle": false,
+            "drop_last": false,
+            "cache_mode": false,
+            "max_len": 3000
+        }
+    },
+    "Optimizer": {
+        "type": "AdamW",
+        "lr": 0.0001,
+        "betas": [
+            0.9,
+            0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.000001
+    },
+    "Scheduler": {
+        "type": "cosine",
+        "T_max": 200,
+        "eta_min":0.000000001,
+        "ema":false,
+        "ema_annel_strategy": "cos",
+        "ema_annel_epochs":10,
+        "ema_lr":0.000000001,
+        "ema_weight":0.9,
+        "ema_start_epoch":90
+    },
+    "Saver": {
+        "save_dir": "./outputs",
+        "save_interval": 1,
+        "save_start_epoch": 0,
+        "save_num_per_epoch": 2,
+        "max_save_num": 20,
+        "save_best": true,
+        "metric":"all_match_acc",
+        "reverse": true
+    },
+    "Logger": {
+        "delimiter": "\t",
+        "print_freq": 25,
+        "header": ""
+    },
+    "Misc": {
+        "epochs":201,
+        "use_tensorboard": true,
+        "tensorboard_dir": "./outputs",
+        "clip_max_norm": 10,
+        "val_freq":1
+    },
+    "Drawer": {
+        "draw_freq": 25,
+        "output_dir": "./outputs",
+        "draw_original": true,
+        "draw_denseMap": true,
+        "draw_output": true,
+        "mean": [
+            0.485,
+            0.456,
+            0.406
+        ],
+        "std": [
+            0.229,
+            0.224,
+            0.225
+        ]
+    }
+}

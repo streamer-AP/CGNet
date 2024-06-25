@@ -44,9 +44,9 @@ Data Preparation
 cd models/
 python tri_sim_ot_b.py
 ```
-You can will the similarity matrix converging process like this:
+You can see the similarity matrix converging process like this:
 
-<video src="./statics/imgs/sim.mp4" width="800" height="600" controls="controls"></video>
+![sim](./statics/imgs/tinywow_sim_58930123.gif)
 
 
 2. Inference.

@@ -3,7 +3,7 @@
 
 This is an officical implementation of the paper "Weakly Supervised Video Crowd Counting" in PyTorch. 
 
-[paper](extension://pmikcdmaipmhfkojkadmmdjfjcfhfjfo/lib/pdfjs/web/viewer.html?file=https%3A%2F%2Fopenaccess.thecvf.com%2Fcontent%2FCVPR2024%2Fpapers%2FLiu_Weakly_Supervised_Video_Individual_Counting_CVPR_2024_paper.pdf)
+[paper](https://openaccess.thecvf.com/content/CVPR2024/html/Liu_Weakly_Supervised_Video_Individual_Counting_CVPR_2024_paper.html)
 
 ## Introduction
 

@@ -21,7 +21,7 @@ class Model(nn.Module):
         self.num_channels = num_channels
         input_proj_list = []
         
-        self.ot_loss = ot_similarity()
+        self.ot_loss = GML()
 
     def forward(self, input):
         x = input["image_pair"]

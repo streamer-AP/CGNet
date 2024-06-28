@@ -25,20 +25,14 @@ The Weakly Supervised Representation Learning (WSRL) method utilizes both inflow
 
 Our model processes video inputs to predict individual counts, operating over 3-second intervals.
 
-<div>
-  <img src="statics/imgs/c1.gif" alt="GIF 1" style="width: 22%; margin-right: 5px;">
-  <img src="statics/imgs/c2.gif" alt="GIF 2" style="width: 22%; margin-right: 5px;">
-  <img src="statics/imgs/c3.gif" alt="GIF 3" style="width: 22%; margin-right: 5px;">
-  <img src="statics/imgs/c4.gif" alt="GIF 4" style="width: 22%; margin-right: 5px;">
-
-</div>
-
-<div>
-  <img src="statics/imgs/p1.gif" alt="GIF 1" style="width: 22%; margin-right: 5px;">
-  <img src="statics/imgs/p2.gif" alt="GIF 2" style="width: 22%; margin-right: 5px;">
-  <img src="statics/imgs/p3.gif" alt="GIF 3" style="width: 22%; margin-right: 5px;">
+<p>
+  <img src="statics/imgs/c3.gif" alt="GIF 1" style="width: 22%; margin-right: 5px;">
+  <img src="statics/imgs/c4.gif" alt="GIF 2" style="width: 22%; margin-right: 5px;">
+  <img src="statics/imgs/p2.gif" alt="GIF 3" style="width: 22%; margin-right: 5px;">
   <img src="statics/imgs/p4.gif" alt="GIF 4" style="width: 22%; margin-right: 5px;">
-</div>
+
+</p>
+
 
 ## Setup
 

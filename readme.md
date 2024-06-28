@@ -1,32 +1,42 @@
 # Weakly Supervised Video Crowd Counting
 
+Official PyTorch implementation of "Weakly Supervised Video Crowd Counting," as presented at CVPR 2024.
 
-This is an officical implementation of the paper "Weakly Supervised Video Crowd Counting" in PyTorch. 
+📄 [Read the Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Liu_Weakly_Supervised_Video_Individual_Counting_CVPR_2024_paper.html)
 
-[paper](https://openaccess.thecvf.com/content/CVPR2024/html/Liu_Weakly_Supervised_Video_Individual_Counting_CVPR_2024_paper.html)
+**Authors:** Xinyan Liu, Guorong Li, Yuankai Qi, Ziheng Yan, Zhenjun Han, Anton van den Hengel, Ming-Hsuan Yang, Qingming Huang
 
-## Introduction
+## Overview
 
-Video Individual Counting (VIC) aims to predict the number of unique individuals in a single video. Existing methods learn representations based on trajectory labels for individuals, which are annotation-expensive. To provide a more realistic reflection of the underlying practical challenge, we introduce a weakly supervised VIC task, wherein trajectory labels are not provided. Instead, two types of labels are provided to indicate traffic entering the field of view (inflow) and leaving the field view (outflow). We also propose the first solution as a baseline that formulates the task as a weakly supervised contrastive learning problem under group-level matching. In doing so, we devise an end-to-end trainable soft contrastive loss to drive the network to distinguish inflow, outflow, and the remaining. To facilitate future study in this direction, we generate annotations from the existing VIC datasets SenseCrowd and CroHD and also build a new dataset, UAVVIC. Extensive results show that our baseline weakly supervised method outperforms supervised methods, and thus, little information is lost in the transition to the more practically relevant weakly supervised task.
+The Video Individual Counting (VIC) task focuses on predicting the count of unique individuals in videos. Traditional methods, which rely on costly individual trajectory annotations, are impractical for large-scale applications. This work introduces a novel approach to VIC under a weakly supervised framework, utilizing less restrictive inflow and outflow annotations. We propose a baseline method employing weakly supervised contrastive learning for group-level matching, enhanced by a custom soft contrastive loss, facilitating the distinction between different crowd dynamics. We also contribute two augmented datasets, SenseCrowd and CroHD, and introduce a new dataset, UAVVIC, to foster further research in this area. Our method demonstrates superior performance compared to fully supervised counterparts, making a strong case for its practical applicability.
 
-## Pipeline
+## Inference Pipeline
 
-![pipeline](./statics/imgs/pipeline.png)
+![Inference Pipeline](./statics/imgs/pipeline.png)
 
-The inference pipeline of our CGNet and the weakly supervised representation learning method (WSRL). The pipeline comprises a frame-level crowd locator, an encoder, and a Memory-based individual count predictor (MCP). The locator predicts the coordinates for pedestrians. The encoder generates representations for each individual, and MCP predicts inflow counts and updates the individual templates stored in the memory. To pull the matched groups (X and Y) closer and push away individual pairs from unmatched groups, WSRL exploits inflow and outflow labels to optimize the encoder with a novel Group level Matching Loss (GML), which consists of a soft contrastive loss and a hinge loss.
+The CGNet architecture includes:
+- **Frame-level Crowd Locator**: Detects pedestrian coordinates.
+- **Encoder**: Generates unique representations for each detected individual.
+- **Memory-based Individual Count Predictor (MCP)**: Estimates inflow counts and maintains a memory of individual templates.
 
-## Preparation
+The Weakly Supervised Representation Learning (WSRL) method utilizes both inflow and outflow labels to refine the encoder through a novel Group-Level Matching Loss (GML), integrating soft contrastive and hinge losses to optimize performance.
 
-Clone this repo into your local machine. 
+## Demo
 
-``` bash
+Our model processes video inputs to predict individual counts, operating over 3-second intervals.
+
+![Demo Video](./statics/imgs/demo.gif)
+![Count Statistics](./statics/imgs/count.png)
+
+## Setup
+
+### Installation
+
+Clone and set up the CGNet repository:
+
+```bash
 git clone https://github.com/streamer-AP/CGNet
 cd CGNet
-```
-
-Create a new virtual environment and install the required packages. 
-
-``` bash
 conda create -n CGNet python=3.7
 conda activate CGNet
 pip install -r requirements.txt
@@ -51,12 +61,12 @@ You can see the similarity matrix converging process like this:
 
 2. Inference.
    * Before inference, you need to get crowd localization result on a pre-trained crowd localization model. You can use [FIDTM](https://github.com/dk-liang/FIDTM.git), [STEERER](https://github.com/taohan10200/STEERER.git) or any other crowd localization model that output coordinates results.
-   * We also provide a crowd localization results inferenced by FIDTM-HRNet-W48. You can download it from [Baidu disk](https://pan.baidu.com/s/1i9BXHab5pVYhZFCESD6F7Q?pwd=08zg). The data format follows:
+   * We also provide a crowd localization results inferenced by FIDTM-HRNet-W48. You can download it from [Baidu disk](https://pan.baidu.com/s/1i9BXHab5pVYhZFCESD6F7Q?pwd=08zg) or [Google drive](https://drive.google.com/file/d/12cMTFTf_xEiE_AYOvs1CgG91EAvbD_ew/view?usp=drive_link). The data format follows:
    ```
    x y
    x y
    ```
-   * Pretrained models can be downloaded from [Baidu disk](https://pan.baidu.com/s/1GZJM6sHlFULK56UTTlIhtg?pwd=pigo). Unzip it in the weight folder and run the following command.
+   * Pretrained models can be downloaded from [Baidu disk](https://pan.baidu.com/s/1GZJM6sHlFULK56UTTlIhtg?pwd=pigo) or [Google drive](https://drive.google.com/file/d/1EcEy11HVMDxPUMztC-zSIQ4jAMUStbDG/view?usp=drive_link). Unzip it in the weight folder and run the following command.
    ``` bash
     python inference.py
    ```
@@ -85,7 +95,7 @@ You can see the similarity matrix converging process like this:
 
 ## Citation
 
-If you find this work useful, please consider citing it.
+If you find this repository helpful, please cite our paper:
 
 ``` bash
 @inproceedings{liu2024weakly,

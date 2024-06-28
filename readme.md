@@ -29,8 +29,7 @@ Our model processes video inputs to predict individual counts, operating over 3-
   <img src="statics/imgs/c3.gif" alt="GIF 1" style="width: 22%; margin-right: 5px;">
   <img src="statics/imgs/c4.gif" alt="GIF 2" style="width: 22%; margin-right: 5px;">
   <img src="statics/imgs/p2.gif" alt="GIF 3" style="width: 22%; margin-right: 5px;">
-  <img src="statics/imgs/p4.gif" alt="GIF 4" style="width: 22%; margin-right: 5px;">
-
+  <img src="statics/imgs/p3.gif" alt="GIF 4" style="width: 22%; margin-right: 5px;">
 </p>
 
 

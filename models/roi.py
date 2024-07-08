@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 from .backbone import build_backbone
-from .sim_ot import ot_similarity
+from .tri_sim_ot_b import GML
 import math
 import copy
 from typing import Optional, List, Dict, Tuple, Set, Union, Iterable, Any
@@ -46,7 +46,7 @@ class Model(nn.Module):
             nn.ReLU(),
         )
         self.input_proj = nn.ModuleList(input_proj_list)
-        self.ot_loss = ot_similarity()
+        self.ot_loss = GML()
 
     def forward(self, input):
         x = input["image_pair"]

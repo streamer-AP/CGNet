@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 from .backbone import build_backbone
-from .tri_sim_ot_b import ot_similarity
+from .tri_sim_ot_b import GML
 import math
 import copy
 from typing import Optional, List, Dict, Tuple, Set, Union, Iterable, Any
@@ -130,7 +130,7 @@ class Model(nn.Module):
         loss_dict = self.ot_loss([z1,y1], [z2,y2])
         # loss = self.ot_loss(z1, z2)
 
-        loss_dict["all"] = loss_dict["permutation_cost"]+loss_dict["neg_cost"]*0.1
+        loss_dict["all"] = loss_dict["scon_cost"]+loss_dict["hinge_cost"]*0.1
         return loss_dict
 
 

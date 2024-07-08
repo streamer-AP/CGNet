@@ -42,7 +42,7 @@ Clone and set up the CGNet repository:
 ```bash
 git clone https://github.com/streamer-AP/CGNet
 cd CGNet
-conda create -n CGNet python=3.7
+conda create -n CGNet python=3.10
 conda activate CGNet
 pip install -r requirements.txt
 ```

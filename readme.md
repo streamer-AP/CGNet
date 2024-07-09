@@ -96,12 +96,13 @@ You can see the similarity matrix converging process like this:
     python eval.py
     ```
    * For MAE and WRAE, it is slightly better than the paper. The matrics are as follows:
-   ```
+
    | Method | MAE | RMSE | WRAE| 
     | ------ | --- | --- | --- |
     | Paper  | 8.86 | 17.69| 12.6|
     | Repo   | 8.64 | 18.70| 11.76|
-    ```
+    ||
+
 3. Training.
    * For training, you need to prepare the dataset and the crowd localization results. The data format follows:
    ```
@@ -112,7 +113,7 @@ You can see the similarity matrix converging process like this:
    ``` bash
    python train.py
    ```
-   It also supports multi-GPU training. You can set the number of GPUs by using the following command:
+   * It also supports multi-GPU training. You can set the number of GPUs by using the following command:
    ``` bash
    bash dist_train.sh 8
    ```

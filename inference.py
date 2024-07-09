@@ -97,6 +97,7 @@ def main(pair_cfg,  pair_ckpt):
             img_name0 = img_names[0][0]
             pos_path0 = os.path.join(
                 "locater/results", video_name, img_name0+".txt")
+            print(pos_path0)
             pos0 = read_pts(pos_path0)
             z0 = model.forward_single_image(
                 imgs[0, 0].cuda().unsqueeze(0), [pos0], True)[0]

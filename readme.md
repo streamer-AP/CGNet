@@ -75,13 +75,32 @@ You can see the similarity matrix converging process like this:
    ``` bash
     python inference.py
    ```
-   It will cost less than 2GB GPU memory. And using interval = 15(3s), the inference time will be less than 10 minutes for all datasets.
-   * For the SenseCrowd dataset, the repoduced results of this repo is slightly better than the paper. The results are as follows:
+   * It will cost less than 2GB GPU memory. And using interval = 15(3s), the inference time will be less than 10 minutes for all datasets.
+   When finished, it will generate a json file in the result folder. The data format follows:
+   ```json
+   {
+    "video_name": {
+        "video_num": the predicted vic,
+        "first_frame_num": the predicted count in the first frame,
+        "cnt_list": [the count of inflow in each frame],
+        "pos_lists": [the position of each individual in each frame],
+        "frame_num": the total frame number,
+        "inflow_lists": [the inflow of each individual in each frame],
+    },
+    ...
+   }
    ```
-   | Method | MAE | MSE | WRAE| 
+   * For the SenseCrowd dataset, the repoduced results of this repo is shown in results dir.
+   Run the following command to evaluate the results.
+   ``` bash
+    python eval.py
+    ```
+   * For MAE and WRAE, it is slightly better than the paper. The matrics are as follows:
+   ```
+   | Method | MAE | RMSE | WRAE| 
     | ------ | --- | --- | --- |
     | Paper  | 8.86 | 17.69| 12.6|
-    | Repo   | 8.84 | 19.00| 9.7|
+    | Repo   | 8.64 | 18.70| 11.76|
     ```
 3. Training.
    * For training, you need to prepare the dataset and the crowd localization results. The data format follows:

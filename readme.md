@@ -1,6 +1,6 @@
-# Weakly Supervised Video Crowd Counting
+# Weakly Supervised Video Individual Counting
 
-Official PyTorch implementation of "Weakly Supervised Video Crowd Counting," as presented at CVPR 2024.
+Official PyTorch implementation of "Weakly Supervised Video Individual Counting" as presented at CVPR 2024.
 
 📄 [Read the Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Liu_Weakly_Supervised_Video_Individual_Counting_CVPR_2024_paper.html)
 

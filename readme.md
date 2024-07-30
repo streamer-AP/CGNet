@@ -71,7 +71,7 @@ You can see the similarity matrix converging process like this:
    x y
    x y
    ```
-   * Pretrained models can be downloaded from [Baidu disk](https://pan.baidu.com/s/1GZJM6sHlFULK56UTTlIhtg?pwd=pigo) or [Google drive](https://drive.google.com/file/d/1EcEy11HVMDxPUMztC-zSIQ4jAMUStbDG/view?usp=drive_link). Unzip it in the weight folder and run the following command.
+   * Pretrained models can be downloaded from [Baidu disk](https://pan.baidu.com/s/1TQvU-5K8twDXGF_NIhRrAg)(pwd: jhux). or [Google drive](https://drive.google.com/file/d/1EcEy11HVMDxPUMztC-zSIQ4jAMUStbDG/view?usp=drive_link). Unzip it in the weight folder and run the following command.
    ``` bash
     python inference.py
    ```
